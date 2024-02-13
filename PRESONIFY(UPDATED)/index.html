@@ -18,6 +18,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
     />
+    <script type="module" src="login.js"></script>
   </head>
   <body>
     <main class="log-in" id="mainpage">
@@ -64,12 +65,12 @@
 
       <div class="personify">PERSONIFY</div>
     </main>
-
-    <script>
+    <script type="module">
+      import login from './login.js';
       var groupButton = document.getElementById("Loginbutton");
       if (groupButton) {
-        groupButton.addEventListener("click", function (e) {
-          window.location.href = "./mainPage.html";
+        groupButton.addEventListener("click", function () {
+        login(); 
         });
       }
       

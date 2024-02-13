@@ -55,12 +55,15 @@
       </div>
       <img class="side-menu-icon1" alt="" src="./public/side-menu1@2x.png" />
     </div>
-
-    <script>
+    <script type="module" src="signup.js"></script>
+    <script type="module">
+    import { handleSignUp } from './signup.js';
+      handleSignUp();
       var groupButton = document.getElementById("CreateAccConfirm");
       if (groupButton) {
         groupButton.addEventListener("click", function (e) {
-          window.location.href = "./termsNConditionPage.html";
+          //window.location.href = "./termsNConditionPage.html";
+          window.location.href = "./index.html";  
         });
       }
       var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
