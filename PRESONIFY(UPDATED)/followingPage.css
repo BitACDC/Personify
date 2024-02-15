@@ -38,21 +38,7 @@
   font-weight: 700;
   color: var(--color-gray-200);
 }
-.group-child16,
-.group-child17 {
-  position: absolute;
-  top: 15px;
-  left: 9px;
-  border-radius: var(--br-6xl);
-  background-color: var(--color-black);
-  width: 160px;
-  height: 126px;
-}
-.group-child17 {
-  top: 0;
-  left: 0;
-  background-color: var(--color-white);
-}
+
 .rectangle-parent7 {
   position: absolute;
   top: 71px;
@@ -173,9 +159,10 @@
   background-color: transparent;
   position: absolute;
   top: 45px;
-  left: 859px;
+  left: 1125px;
   width: 123px;
   height: 48px;
+  z-index: 1;
 }
 .group-15-14 {
   position: absolute;
