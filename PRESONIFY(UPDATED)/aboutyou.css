@@ -258,7 +258,12 @@
   height: 909px;
 }
 
-.posts1 {
+.post,
+.post1 {
+  position: absolute;
+}
+
+.post1 {
   position: absolute;
   top: 10px;
   left: 57px;
@@ -277,15 +282,11 @@
   top: 45px;
   left: 859px;
   width: 117px;
+  height: auto;
 }
 
-.edit-fill-icon,
-.post2 {
+.post-fill-icon {
   position: absolute;
-  height: 48px;
-}
-
-.edit-fill-icon {
   top: 0;
   left: 0;
   width: 59px;
