@@ -42,21 +42,8 @@
   color: var(--color-gray-200);
 }
 
-.group-child1,
-.group-child2 {
-  position: absolute;
-  top: 15px;
-  left: 9px;
-  border-radius: var(--br-6xl);
-  background-color: var(--color-black);
-  width: 160px;
-  height: 126px;
-}
-
-.group-child2 {
-  top: 0;
-  left: 0;
-  background-color: var(--color-white);
+.username-child{
+  
 }
 
 .group-div {
@@ -183,7 +170,7 @@
   top: 32px;
   left: 106px;
   background-color: var(--color-dimgray-100);
-  width: 587px;
+  width: 590px;
   height: 791px;
 }
 
@@ -258,14 +245,9 @@
   height: 909px;
 }
 
-.post,
 .post1 {
   position: absolute;
-}
-
-.post1 {
-  position: absolute;
-  top: 10px;
+  top: 210px;
   left: 57px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
@@ -282,7 +264,7 @@
   top: 45px;
   left: 859px;
   width: 117px;
-  height: auto;
+  height: 64px;
 }
 
 .post-fill-icon {
@@ -290,7 +272,7 @@
   top: 0;
   left: 0;
   width: 59px;
-  object-fit: cover;
+  height: 64px;
 }
 
 .home-child {
