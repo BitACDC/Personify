@@ -13,6 +13,8 @@
   top: 0;
   left: 0;
   background-color: var(--color-white);
+  box-sizing: border-
+  box;
 }
 
 .about-you-child,
@@ -40,23 +42,6 @@
   box-sizing: border-box;
   font-weight: 700;
   color: var(--color-gray-200);
-}
-
-.group-child1,
-.group-child2 {
-  position: absolute;
-  top: 15px;
-  left: 9px;
-  border-radius: var(--br-6xl);
-  background-color: var(--color-black);
-  width: 160px;
-  height: 126px;
-}
-
-.group-child2 {
-  top: 0;
-  left: 0;
-  background-color: var(--color-white);
 }
 
 .group-div {
@@ -183,7 +168,7 @@
   top: 32px;
   left: 106px;
   background-color: var(--color-dimgray-100);
-  width: 587px;
+  width: 590px;
   height: 791px;
 }
 
@@ -258,37 +243,35 @@
   height: 909px;
 }
 
-.posts {
-  cursor: pointer;
+.post1 {
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 57px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
   color: var(--color-silver-100);
+  text-align: left;
 }
 
-.edit-fill-icon,
-.post2 {
-  position: absolute;
-  height: 48px;
-}
-
-.edit-fill-icon {
-  top: 0;
-  left: 0;
-  width: 59px;
-  object-fit: cover;
-}
-
-.post2 {
+.post {
   cursor: pointer;
   border: 0;
   padding: 0;
   background-color: transparent;
-  top: 45px;
-  left: 859px;
-  width: 117px;
+  position: absolute;
+  top: 86px;
+  left: 110px;
+  width: 171px;
+  height: 64px;
+  z-index: 1;
+}
+
+.post-fill-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 59px;
+  height: 64px;
 }
 
 .home-child {
@@ -307,12 +290,15 @@
 }
 
 .home1 {
+  position: absolute;
   top: 13px;
   left: 61px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
   color: var(--color-white);
   text-align: left;
+  display: inline-block;
+  width: 70px;
 }
 
 .home {
@@ -320,10 +306,11 @@
   border: 0;
   padding: 0;
   background-color: transparent;
+  position: absolute;
   top: 102px;
-  left: 15px;
+  left: 14px;
   width: 178px;
-  height: 64px;
+  height: 63px;
 }
 
 .about-you {
