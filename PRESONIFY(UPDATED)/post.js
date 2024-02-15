@@ -20,4 +20,22 @@ async function CreatePost() {
     }
 }
 
-document.getElementById("PostButton").addEventListener("click", CreatePost);
+//document.getElementById("PostButton").addEventListener("click", CreatePost);
+
+async function sendtoAPI(formElement, event) {
+    const textarea = formElement.querySelector('#PostInput');
+    const postText = textarea.value.trim();
+
+    try {
+        console.log(postText);
+        // Call the function to create a post and handle response
+        await handleCreatePost(postText);
+        // Optionally, fetch and display updated posts
+        getPosts();
+        textarea.value = ''; // Clear the input field
+        event.preventDefault();
+    } catch (error) {
+        console.error('Error occurred while posting:', error);
+    }
+}
+
