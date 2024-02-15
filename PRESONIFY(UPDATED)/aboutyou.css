@@ -13,6 +13,8 @@
   top: 0;
   left: 0;
   background-color: var(--color-white);
+  box-sizing: border-
+  box;
 }
 
 .about-you-child,
@@ -40,10 +42,6 @@
   box-sizing: border-box;
   font-weight: 700;
   color: var(--color-gray-200);
-}
-
-.username-child{
-  
 }
 
 .group-div {
