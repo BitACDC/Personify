@@ -292,12 +292,15 @@
 }
 
 .home1 {
+  position: absolute;
   top: 13px;
   left: 61px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
   color: var(--color-white);
   text-align: left;
+  display: inline-block;
+  width: 70px;
 }
 
 .home {
@@ -305,10 +308,11 @@
   border: 0;
   padding: 0;
   background-color: transparent;
+  position: absolute;
   top: 102px;
-  left: 15px;
+  left: 14px;
   width: 178px;
-  height: 64px;
+  height: 63px;
 }
 
 .about-you {
