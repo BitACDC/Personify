@@ -1,4 +1,4 @@
-export async function CreatePost() {
+async function CreatePost() {
     var post = document.getElementById("PostInput").value;
     let token = localStorage.getItem("token");
 
@@ -19,3 +19,5 @@ export async function CreatePost() {
         console.log('failed');
     }
 }
+
+document.getElementById("PostButton").addEventListener("click", CreatePost);
