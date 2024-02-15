@@ -258,14 +258,25 @@
   height: 909px;
 }
 
-.posts {
-  cursor: pointer;
+.posts1 {
   position: absolute;
   top: 10px;
   left: 57px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
   color: var(--color-silver-100);
+  text-align: left;
+}
+
+.post {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 45px;
+  left: 859px;
+  width: 117px;
 }
 
 .edit-fill-icon,
@@ -279,16 +290,6 @@
   left: 0;
   width: 59px;
   object-fit: cover;
-}
-
-.post2 {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  top: 45px;
-  left: 859px;
-  width: 117px;
 }
 
 .home-child {
