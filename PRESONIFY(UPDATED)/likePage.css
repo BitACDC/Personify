@@ -38,21 +38,6 @@
   font-weight: 700;
   color: var(--color-gray-200);
 }
-.group-child12,
-.group-child13 {
-  position: absolute;
-  top: 15px;
-  left: 9px;
-  border-radius: var(--br-6xl);
-  background-color: var(--color-black);
-  width: 160px;
-  height: 126px;
-}
-.group-child13 {
-  top: 0;
-  left: 0;
-  background-color: var(--color-white);
-}
 .rectangle-parent5 {
   position: absolute;
   top: 71px;
@@ -151,7 +136,7 @@
 }
 .posts3 {
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 57px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
@@ -163,8 +148,7 @@
   top: 0;
   left: 0;
   width: 59px;
-  height: 48px;
-  object-fit: cover;
+  height: 64px;
 }
 .following8 {
   cursor: pointer;
@@ -172,10 +156,11 @@
   padding: 0;
   background-color: transparent;
   position: absolute;
-  top: 45px;
-  left: 859px;
-  width: 123px;
-  height: 48px;
+  top: 44px;
+  left: 1110px;
+  width: 171px;
+  height: 64px;
+  z-index: 1;
 }
 .group-15-13 {
   position: absolute;
