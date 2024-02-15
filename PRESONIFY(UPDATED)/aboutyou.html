@@ -80,8 +80,10 @@
         <div class="home1">HOME</div>
       </button>
     </div>
-
-    <script>
+    <script type="module" src="./accUserName.js"></script>
+    <script type="module">
+      import { displayUserInfo } from './accUserName.js';
+      displayUserInfo();
       var lOGOUT = document.getElementById("LogOutButton");
       if (lOGOUT) {
         lOGOUT.addEventListener("click", function (e) {
