@@ -247,7 +247,7 @@
 
 .post1 {
   position: absolute;
-  top: 210px;
+  top: 12px;
   left: 57px;
   font-size: var(--font-size-6xl);
   font-family: var(--font-oswald);
@@ -261,10 +261,11 @@
   padding: 0;
   background-color: transparent;
   position: absolute;
-  top: 45px;
-  left: 859px;
-  width: 117px;
+  top: 86px;
+  left: 110px;
+  width: 171px;
   height: 64px;
+  z-index: 1;
 }
 
 .post-fill-icon {
