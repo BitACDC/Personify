@@ -41,21 +41,74 @@ async function getPosts() {
 
         const data = await response.json();
 
-        console.log(data); 
+        console.log(data);  // Log the data received from the server
 
         const postsFeedContainer = document.getElementById("posts-container");
         postsFeedContainer.innerHTML = '';
 
         data.forEach(post => {
+            // Create post elements
             const postBox = document.createElement("div");
             postBox.classList.add("post-box");
-            postBox.innerText = post.content;
+
+            const usernameElement = document.createElement("div");
+            usernameElement.classList.add("username");
+            usernameElement.style.fontWeight = 'bold';
+            usernameElement.style.textDecoration = 'underline';
+            usernameElement.innerText = post.postedBy;
+
+            // Check if "postedBy" information is available
+            if (post.postedBy && post.postedBy.username) {
+                usernameElement.innerText = post.postedBy.username;
+            }
+
+            const postContent = document.createElement("div");
+            postContent.classList.add("post-content");
+            postContent.innerText = post.content;
+
+            const likeCount = post.likeCount !== undefined ? post.likeCount : 0;
+
+            const likeButton = document.createElement("button");
+            likeButton.innerText = likeCount === 0 ? "Like" : `Like (${likeCount})`;
+            likeButton.classList.add("like-button");
+            likeButton.addEventListener("click", async function () {
+                // Update like count on button click
+                await updateLike(post.id, likeButton);
+            });
+
+            const followButton = document.createElement("button");
+            followButton.innerText = "Follow";
+            followButton.classList.add("follow-button");
+            followButton.addEventListener("click", function () {
+                // Implement follow functionality if needed
+            });
+
+            // Append elements to postBox
+            postBox.appendChild(usernameElement);
+            postBox.appendChild(postContent);
+            postBox.appendChild(likeButton);
+            postBox.appendChild(followButton);
+
+            // Append postBox to postsFeedContainer
             postsFeedContainer.appendChild(postBox);
         });
     } catch (error) {
         console.error('Error occurred while fetching posts:', error);
     }
 }
+
+// Assume there is an updateLike function to update the like count
+async function updateLike(postId, likeButton) {
+    // Implement the logic to update the like count for the given postId
+    // Make a request to the server to update the like count
+    // Update the like count on the button
+    const updatedLikeCount = 1; // Update with the actual like count
+    likeButton.innerText = `Like (${updatedLikeCount})`;
+}
+
+// ... (rest of the code)
+
+
 
 // Call getPosts() when the page loads
 window.addEventListener("load", function() {

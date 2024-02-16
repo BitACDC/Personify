@@ -68,45 +68,35 @@
     var postsContainer = document.getElementById("posts-container");
     postsContainer.innerHTML = '';
 
-
-    var username = localStorage.getItem('username') || 'Guest';
-
-
-    posts.forEach(function(postText) {
+    posts.forEach(function (post) {
         var postBox = document.createElement("div");
         postBox.classList.add("post-box");
-       
+
         var usernameElement = document.createElement("div");
         usernameElement.classList.add("username");
         usernameElement.style.fontWeight = 'bold';
         usernameElement.style.textDecoration = 'underline';
-        usernameElement.innerText = username;
         
+        // Check if "postedBy" information is available
+        if (post.postedBy && post.postedBy.username) {
+            usernameElement.innerText = post.postedBy.username;
+        }
         var postContent = document.createElement("div");
         postContent.classList.add("post-content");
-        postContent.innerText = postText;
-
-<<<<<<< HEAD
-
-        var likeCount = 0; // Initialize like count for each post
-=======
-        var likeCount = 0; 
->>>>>>> 0260afc1bbd422f868f6a3d3cc0c5bad43ab8b92
-
+        postContent.innerText = post.content;
 
         var likeButton = document.createElement("button");
-        likeButton.innerText = "Like (0)";
+        likeButton.innerText = "Like (" + post.likeCount + ")";
         likeButton.classList.add("like-button");
-        likeButton.addEventListener("click", function() {
-            likeCount++;
-            likeButton.innerText = "Like (" + likeCount + ")";
+        likeButton.addEventListener("click", function () {
+            post.likeCount++;
+            likeButton.innerText = "Like (" + post.likeCount + ")";
         });
-
 
         var followButton = document.createElement("button");
         followButton.innerText = "Follow";
         followButton.classList.add("follow-button");
-        followButton.addEventListener("click", function() {
+        followButton.addEventListener("click", function () {
             if (followButton.innerText === "Follow") {
                 followButton.innerText = "Following";
             } else {
@@ -114,26 +104,40 @@
             }
         });
 
-
         postBox.appendChild(usernameElement);
         postBox.appendChild(postContent);
         postBox.appendChild(likeButton);
         postBox.appendChild(followButton);
 
-
         postsContainer.appendChild(postBox);
     });
 }
 
-
-    document.getElementById("PostButton").addEventListener("click", function() {
+  document.getElementById("PostButton").addEventListener("click", async function () {
       var inputText = document.getElementById("PostInput").value;
       var posts = loadPosts();
-      posts.push(inputText);
+
+      // Assuming you have a function to get the current username
+      var username = getCurrentUsername();
+
+      // Creating a new post object with required information
+      var newPost = {
+          username: username,
+          content: inputText,
+          likeCount: 0 // Initialize like count for each post
+      };
+
+      // Pushing the new post object into the posts array
+      posts.push(newPost);
+
+      // Save the updated posts array
       savePosts(posts);
+
+      // Display the posts
       displayPosts();
+
       document.getElementById("PostInput").value = "";
-    });
+  });
 
 
     window.addEventListener("load", function() {
