@@ -66,10 +66,11 @@
   left: 1020px;
   width: 262px;
   height: 53px;
+  transition: transform 0.5s ease-in-out 0s;
 }
-.post-button:hover {
-  animation: 2s ease 0s infinite normal none shadow-inset-center;
-  opacity: 1;
+
+.post-button:hover{
+  transform: scale(1.1);
 }
 .search-bar {
   outline: 0;
@@ -124,6 +125,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.logout1:hover{
+  transform: scale(1.1);
 }
 .settings3 {
   position: absolute;
@@ -146,6 +152,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.settings2:hover{
+  transform: scale(1.1);
 }
 .profile3 {
   position: absolute;
@@ -168,6 +179,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.profile2:hover{
+  transform: scale(1.1);
 }
 .home-item {
   top: 0;
@@ -199,6 +215,11 @@
   left: 15px;
   width: 178px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.home2:hover{
+  transform: scale(1.1);
 }
 .main-page {
   width: 100%;
@@ -248,6 +269,10 @@
 
 .follow-button {
   right:95px;
+}
+
+.container {
+  align-items: center;
 }
 
 

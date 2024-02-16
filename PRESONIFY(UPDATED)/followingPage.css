@@ -99,6 +99,11 @@
   left: 528px;
   width: 114px;
   height: 57px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.likes7:hover{
+  transform: scale(1.1);
 }
 .star-fill-icon3 {
   position: absolute;
@@ -114,7 +119,7 @@
   font-size: var(--font-size-6xl);
   text-decoration: underline;
   font-family: var(--font-oswald);
-  color: var(--color-white);
+  color: #add8e6;
   text-align: left;
 }
 .following10 {
@@ -127,6 +132,11 @@
   left: 295px;
   width: 171px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.following10:hover{
+  transform: scale(1.1);
 }
 .side-menu-for-likes-and-follo3 {
   position: absolute;
@@ -163,6 +173,11 @@
   width: 123px;
   height: 48px;
   z-index: 1;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.following12:hover{
+  transform: scale(1.1);
 }
 .group-15-14 {
   position: absolute;
@@ -202,6 +217,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.logout4:hover{
+  transform: scale(1.1);
 }
 .settings9 {
   position: absolute;
@@ -224,6 +244,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.settings8:hover{
+  transform: scale(1.1);
 }
 .profile9 {
   position: absolute;
@@ -246,6 +271,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.profile8:hover{
+  transform: scale(1.1);
 }
 .home-child2 {
   top: 0;
@@ -277,6 +307,11 @@
   left: 15px;
   width: 178px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.home8:hover{
+  transform: scale(1.1);
 }
 .following9 {
   width: 100%;

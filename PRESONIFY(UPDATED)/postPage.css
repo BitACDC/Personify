@@ -37,10 +37,16 @@
   border: 0;
   padding: 0;
   background-color: transparent;
+  position: absolute;
   top: 89px;
   left: 528px;
   width: 114px;
   height: 57px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.likes2:hover{
+  transform: scale(1.1);
 }
 .star-fill-icon1 {
   position: absolute;
@@ -68,6 +74,11 @@
   left: 295px;
   width: 171px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.following3:hover{
+  transform: scale(1.1);
 }
 .side-menu-for-likes-and-follo1 {
   position: absolute;
@@ -81,6 +92,11 @@
   top: 10px;
   left: 57px;
   text-decoration: underline;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.posts2:hover{
+  transform: scale(1.1);
 }
 .edit-fill-icon1 {
   position: absolute;
@@ -209,6 +225,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.logout2:hover{
+  transform: scale(1.1);
 }
 .settings5 {
   position: absolute;
@@ -231,6 +252,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.settings4:hover{
+  transform: scale(1.1);
 }
 .profile5 {
   position: absolute;
@@ -253,6 +279,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.profile4:hover{
+  transform: scale(1.1);
 }
 .home-inner {
   top: 0;
@@ -284,6 +315,11 @@
   left: 15px;
   width: 178px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.home4:hover{
+  transform: scale(1.1);
 }
 .posts1 {
   width: 100%;

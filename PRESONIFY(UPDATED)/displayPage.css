@@ -61,6 +61,11 @@
   left: 189px;
   width: 168px;
   height: 92px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.following15:hover{
+  transform: scale(1.1);
 }
 .notifs6 {
   position: absolute;
@@ -86,6 +91,11 @@
   background-color: transparent;
   top: 58px;
   width: 128px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.notifs5:hover{
+  transform: scale(1.1);
 }
 .side-menu-for-likes-and-follo-child8 {
   position: absolute;
@@ -192,6 +202,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.logout7:hover{
+  transform: scale(1.1);
 }
 .settings19 {
   position: absolute;
@@ -214,6 +229,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.settings18:hover{
+  transform: scale(1.1);
 }
 .profile15 {
   position: absolute;
@@ -236,6 +256,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.profile14:hover{
+  transform: scale(1.1);
 }
 .home-child5 {
   top: 0;
@@ -267,6 +292,11 @@
   left: 15px;
   width: 178px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.home14:hover{
+  transform: scale(1.1);
 }
 .display2 {
   width: 100%;

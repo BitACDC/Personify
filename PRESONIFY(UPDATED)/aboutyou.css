@@ -105,6 +105,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.logout:hover{
+  transform: scale(1.1);
 }
 
 .settings1 {
@@ -129,6 +134,10 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+.settings:hover{
+  transform: scale(1.1);
 }
 
 .profile1 {
@@ -153,6 +162,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.profile:hover{
+  transform: scale(1.1);
 }
 
 .side-menu-for-likes-and-follo-child {
@@ -203,6 +217,11 @@
   left: 528px;
   width: 114px;
   height: 57px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.likes:hover{
+  transform: scale(1.1);
 }
 
 .star-fill-icon {
@@ -233,6 +252,12 @@
   left: 295px;
   width: 171px;
   height: 64px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.following:hover{
+  transform: scale(1.1);
+  ;
 }
 
 .side-menu-for-likes-and-follo {
@@ -264,6 +289,11 @@
   width: 171px;
   height: 64px;
   z-index: 1;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.post:hover {
+  transform: scale(1.1);
 }
 
 .post-fill-icon {
@@ -311,6 +341,11 @@
   left: 14px;
   width: 178px;
   height: 63px;
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.home:hover {
+  transform: scale(1.1);
 }
 
 .about-you {

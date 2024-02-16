@@ -43,7 +43,13 @@
   box-sizing: border-box;
   font-weight: 700;
   color: var(--color-lightgray);
+  transition: transform 0.5s ease-in-out 0s;
 }
+
+.create-acc-item:hover{
+  transform: scale(1.1);
+}
+
 .group-child3 {
   top: 0;
   left: 0;
@@ -74,11 +80,13 @@
   left: 101px;
   width: 233px;
   height: 42px;
+  transition: transform 0.5s ease-in-out 0s;
 }
-.group-button:hover {
-  animation: 2s ease 0s infinite normal none shadow-inset-center;
-  opacity: 1;
+
+.group-button:hover{
+  transform: scale(1.1);
 }
+
 .create-acc-inner,
 .group-input {
   border: 0;
@@ -98,6 +106,14 @@
   box-sizing: border-box;
   font-weight: 700;
   color: var(--color-lightgray);
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.create-acc-inner:hover {
+  transform: scale(1.1);
+}
+.group-input:hover {
+  transform: scale(1.1);
 }
 .group-input {
   top: 112px;
