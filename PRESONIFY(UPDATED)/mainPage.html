@@ -4,12 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+
   <link rel="stylesheet" href="./global.css" />
   <link rel="stylesheet" href="./mainPage.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orelega One:wght@400&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
 </head>
+
 
 <body>
   <div class="main-page">
@@ -20,11 +22,15 @@
       <b class="post">POST</b>
     </button>
 
-    <div id="posts-container" class="posts-container"></div> 
+
+    <div id="posts-container" class="posts-container"></div>
+
 
     <input class="search-bar" placeholder="Search" type="text" />
 
+
     <img class="group-15-11" alt="" src="./public/group-15-1@2x.png" />
+
 
     <button class="logout1" id="LogOutButton">
       <div class="logout-item"></div>
@@ -44,7 +50,9 @@
     </button>
   </div>
 
-  <script>
+
+  <script type="module">
+    import { CreatePost, getPosts, handlePost } from './post.js';
 
     function savePosts(posts) {
       localStorage.setItem('posts', JSON.stringify(posts));
@@ -54,28 +62,33 @@
       return posts ? JSON.parse(posts) : [];
     }
 
+
     function displayPosts() {
     var posts = loadPosts();
     var postsContainer = document.getElementById("posts-container");
-    postsContainer.innerHTML = ''; 
+    postsContainer.innerHTML = '';
+
 
     var username = localStorage.getItem('username') || 'Guest'; // Default to 'Guest' if username is not set
+
 
     posts.forEach(function(postText) {
         var postBox = document.createElement("div");
         postBox.classList.add("post-box");
-
+       
         var usernameElement = document.createElement("div");
         usernameElement.classList.add("username");
         usernameElement.style.fontWeight = 'bold';
         usernameElement.style.textDecoration = 'underline';
         usernameElement.innerText = username;
-
+        
         var postContent = document.createElement("div");
         postContent.classList.add("post-content");
         postContent.innerText = postText;
 
+
         var likeCount = 0; // Initialize like count for each post
+
 
         var likeButton = document.createElement("button");
         likeButton.innerText = "Like (0)";
@@ -84,6 +97,7 @@
             likeCount++;
             likeButton.innerText = "Like (" + likeCount + ")";
         });
+
 
         var followButton = document.createElement("button");
         followButton.innerText = "Follow";
@@ -96,14 +110,17 @@
             }
         });
 
+
         postBox.appendChild(usernameElement);
         postBox.appendChild(postContent);
         postBox.appendChild(likeButton);
         postBox.appendChild(followButton);
 
+
         postsContainer.appendChild(postBox);
     });
 }
+
 
     document.getElementById("PostButton").addEventListener("click", function() {
       var inputText = document.getElementById("PostInput").value;
@@ -111,12 +128,14 @@
       posts.push(inputText);
       savePosts(posts);
       displayPosts();
-      document.getElementById("PostInput").value = ""; 
+      document.getElementById("PostInput").value = "";
     });
+
 
     window.addEventListener("load", function() {
       displayPosts();
     });
+
 
     var sETTINGS = document.getElementById("SettingsButton");
     if (sETTINGS) {
@@ -125,6 +144,7 @@
       });
     }
 
+
     var pROFILE = document.getElementById("ProfileButton");
     if (pROFILE) {
       pROFILE.addEventListener("click", function (e) {
@@ -132,12 +152,14 @@
       });
     }
 
+
     var hOME = document.getElementById("HomeButton");
     if (hOME) {
       hOME.addEventListener("click", function (e) {
         window.location.href = "./mainPage.html";
       });
     }
+
 
     var Out = document.getElementById("LogOutButton");
     if(Out)
@@ -148,17 +170,19 @@
       });
     }
 
+
     document.querySelector(".search-bar").addEventListener("input", function() {
       var searchText = this.value.trim().toLowerCase();
       var postsContainer = document.getElementById("posts-container");
       var posts = postsContainer.getElementsByClassName("post-box");
 
+
       for (var i = 0; i < posts.length; i++) {
         var postText = posts[i].innerText.toLowerCase();
         if (postText.includes(searchText)) {
-          posts[i].style.display = "block"; 
+          posts[i].style.display = "block";
         } else {
-          posts[i].style.display = "none"; 
+          posts[i].style.display = "none";
         }
       }
     });

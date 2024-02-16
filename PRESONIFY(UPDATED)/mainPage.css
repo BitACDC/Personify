@@ -208,15 +208,17 @@
   overflow: hidden;
 }
 
+
 .posts-container {
   position: absolute;
   top: 134px;
   left: 419px;
   width: 719px;
   height: 296px;
-  overflow-y: auto; 
-  padding-right: 10px; 
+  overflow-y: auto;
+  padding-right: 10px;
 }
+
 
 .post-box {
   position: relative;
@@ -228,6 +230,7 @@
   word-wrap: break-word;
   font-family: 'Oswald', sans-serif;
 }
+
 
 .like-button,
 .follow-button {
@@ -242,8 +245,14 @@
   cursor: pointer;
 }
 
+
 .follow-button {
-  right:95px; 
+  right:95px;
 }
+
+
+
+
+
 
 
