@@ -23,7 +23,7 @@ async function CreatePost() {
     }
 }
 
-document.getElementById("PostButton").addEventListener("click", sendtoAPI);
+
 
 async function getPosts() {
     try {
@@ -43,20 +43,28 @@ async function getPosts() {
 
         const data = await response.json();
 
-        console.log(data); // Log the data to check the structure and content
+        console.log(data); 
 
-        const postsFeedContainer = document.querySelector(".postInput");
+        const postsFeedContainer = document.getElementById("posts-container");
         postsFeedContainer.innerHTML = '';
 
         data.forEach(post => {
-            const postCard = createPostElement(post.postedBy, post.content, post.timestamp);
-            postsFeedContainer.prepend(postCard);
-            likePost('.feed-card .like-btn');
+            const postBox = document.createElement("div");
+            postBox.classList.add("post-box");
+            postBox.innerText = post.content;
+            postsFeedContainer.appendChild(postBox);
         });
     } catch (error) {
         console.error('Error occurred while fetching posts:', error);
     }
 }
+
+// Call getPosts() when the page loads
+window.addEventListener("load", function() {
+    getPosts();
+});
+
+document.getElementById("PostButton").addEventListener("click", sendtoAPI);
 
 async function sendtoAPI(event) {
     try {
