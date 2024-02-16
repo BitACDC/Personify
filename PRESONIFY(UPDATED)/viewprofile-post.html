@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./viewprofile-post.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orelega One:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
+    
+  </head>
+  <body>
+    <div class="posts1">
+      <div class="side-menu-for-likes-and-follo1">
+        <img class="side-menu-for-likes-and-follo-inner" alt="" src="./public/group-3.svg" />
+
+        <div class="side-menu-for-likes-and-follo-child1"></div>
+        <button class="likes2" id="LikesNavButton">
+          <img class="favorite-fill-icon1" alt="" src="./public/favorite-fill.svg" />
+
+          <div class="likes3">LIKES</div>
+        </button>
+        <button class="following3" id="FollowNavButton">
+          <img class="star-fill-icon1" alt="" src="./public/star-fill.svg" />
+
+          <div class="following4">FOLLOWING</div>
+        </button>
+      </div>
+      <div class="following5">
+        <b class="posts2">POSTS</b>
+        <img class="edit-fill-icon1" alt="" src="./public/edit-fill1@2x.png" />
+      </div>
+      <div class="rectangle-parent2">
+        <div class="group-child6"></div>
+        <div class="group-child7"></div>
+      </div>
+      <div class="follow-container">
+        <b class="follow">Follow</b>
+        <div class="follow-child"></div>
+      </div>
+      <textarea class="posts-child" rows="{10}" maxlength="{50}" cols="{5}">
+      </textarea>
+      <b class="about-you2">ABOUT YOU:</b>
+      <b class="username1">USERNAME:</b>
+      <img class="group-15-12" alt="" src="./public/group-15-1@2x.png" />
+
+      <button class="logout2" id="LogOutButton">
+        <div class="logout-inner"></div>
+        <div class="log-out2">LOG OUT</div>
+      </button>
+      <button class="settings4" id="SettingsButton">
+        <div class="logout-inner"></div>
+        <div class="settings5">SETTINGS</div>
+      </button>
+      <button class="profile4" id="ProfileButton">
+        <div class="logout-inner"></div>
+        <div class="profile5">PROFILE</div>
+      </button>
+      <button class="home4" id="HomeButton">
+        <div class="home-inner"></div>
+        <div class="home5">HOME</div>
+      </button>
+    </div>
+
+    <script>
+      var lIKES = document.getElementById("LikesNavButton");
+      if (lIKES) {
+        lIKES.addEventListener("click", function (e) {
+          window.location.href = "./likePage.html";
+        });
+      }
+      
+      var fOLLOWING = document.getElementById("FollowNavButton");
+      if (fOLLOWING) {
+        fOLLOWING.addEventListener("click", function (e) {
+          window.location.href = "./followingPage.html";
+        });
+      }
+      
+      var lOGOUT = document.getElementById("LogOutButton");
+      if (lOGOUT) {
+        lOGOUT.addEventListener("click", function (e) {
+          window.location.href = "./index.html";
+        });
+      }
+      
+      var sETTINGS = document.getElementById("SettingsButton");
+      if (sETTINGS) {
+        sETTINGS.addEventListener("click", function (e) {
+          window.location.href = "./settingPage.html";
+        });
+      }
+      
+      var pROFILE = document.getElementById("ProfileButton");
+      if (pROFILE) {
+        pROFILE.addEventListener("click", function (e) {
+          window.location.href = "aboutyou.html";
+        });
+      }
+      
+      var hOME = document.getElementById("HomeButton");
+      if (hOME) {
+        hOME.addEventListener("click", function (e) {
+          window.location.href = "./mainPage.html";
+        });
+      }
+      </script>
+  </body>
+</html>

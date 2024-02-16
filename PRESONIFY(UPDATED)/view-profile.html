@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./view-profile.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orelega One:wght@400&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"/>
+  </head>
+  <body>
+    <div class="about-you">
+      
+      <div class="rectangle-container">
+        <div class="group-inner"></div>
+        <input class="rectangle-div" placeholder="WHO U?" type="text" disabled/>
+      </div>
+
+      <div class="follow-container">
+        <b class="follow">Follow</b>
+        <div class="follow-child"></div>
+      </div>
+      
+      <textarea class="about-you-child" rows="{10}" maxlength="{50}" cols="{5}" placeholder="WHAT U?" disabled></textarea>
+      <b class="about-you1">ABOUT YOU:</b>
+      <b class="username">USERNAME:</b>
+      <img class="group-15-1" alt="" src="./public/group-15-1@2x.png" />
+      
+      <button class="home" id="HomeButton">
+        <div class="home-child"></div>
+        <div class="home1">HOME</div>
+      </button>
+      <button class="logout" id="LogOutButton">
+        <div class="logout-child"></div>
+        <div class="log-out">LOG OUT</div>
+      </button>
+      <button class="settings" id="SettingsButton">
+        <div class="logout-child"></div>
+        <div class="settings1">SETTINGS</div>
+      </button>
+      <button class="profile" id="ProfileButton">
+        <div class="logout-child"></div>
+        <div class="profile1">PROFILE</div>
+      </button>
+
+      <div class="side-menu-for-likes-and-follo">
+        <img class="side-menu-for-likes-and-follo-child" alt="" src="./public/group-3.svg"/>
+
+          <button class="post" id="PostNavButton">
+            <img class="post-fill-icon" alt="" src="./public/edit-fill@2x.png" />
+            <div class="post1">POSTS</div>
+          </button>
+
+          <div class="side-menu-for-likes-and-follo-item"></div>
+          <button class="likes" id="LikeNavButton">
+            <img class="favorite-fill-icon" alt="" src="./public/favorite-fill.svg"/>
+            <div class="likes1">LIKES</div>
+          </button>
+
+          <button class="following" id="FollowingNavButton">
+            <img class="star-fill-icon" alt="" src="./public/star-fill.svg" />
+            <div class="following1">FOLLOWING</div>
+          </button>
+      </div>
+    </div>
+    <script type="module" src="./accUserName.js"></script>
+    <script type="module">
+      import { displayUserInfo } from './accUserName.js';
+      displayUserInfo();
+      var lOGOUT = document.getElementById("LogOutButton");
+      if (lOGOUT) {
+        lOGOUT.addEventListener("click", function (e) {
+          window.location.href = "./index.html";
+        });
+      }
+      
+      var sETTINGS = document.getElementById("SettingsButton");
+      if (sETTINGS) {
+        sETTINGS.addEventListener("click", function (e) {
+          window.location.href = "./settingPage.html";
+        });
+      }
+      
+      var pROFILE = document.getElementById("ProfileButton");
+      if (pROFILE) {
+        pROFILE.addEventListener("click", function (e) {
+          window.location.href = "aboutyou.html";
+        });
+      }
+      
+      var lIKES = document.getElementById("LikeNavButton");
+      if (lIKES) {
+        lIKES.addEventListener("click", function (e) {
+          window.location.href = "./followingPage.html";
+        });
+      }
+      
+      var fOLLOWING = document.getElementById("FollowingNavButton");
+      if (fOLLOWING) {
+        fOLLOWING.addEventListener("click", function (e) {
+          window.location.href = "./likePage.html";
+        });
+      }
+      
+      var fOLLOWING1 = document.getElementById("PostNavButton");
+      if (fOLLOWING1) {
+        fOLLOWING1.addEventListener("click", function (e) {
+          window.location.href = "./postPage.html";
+        });
+      }
+      
+      var hOME = document.getElementById("HomeButton");
+      if (hOME) {
+        hOME.addEventListener("click", function (e) {
+          window.location.href = "./mainPage.html";
+        });
+      }
+      </script>
+  </body>
+</html>

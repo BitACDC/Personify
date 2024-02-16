@@ -1,0 +1,352 @@
+.group-inner,
+.rectangle-div {
+  position: absolute;
+  top: 7px;
+  left: 18.1px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-black);
+  width: 274.9px;
+  height: 43px;
+}
+
+.rectangle-div {
+  top: 0;
+  left: 0;
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+.follow,
+.follow-child{
+    position: absolute;
+    top: 11px;
+    left: 20px;
+    border-radius: var(--br-11xl);
+    background-color: var(--color-black);
+    width: 120px;
+    height: 43px;
+}
+
+.follow{
+    top: 20px;
+    left: 45px;
+    background-color: transparent;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.follow-container{
+    position: absolute;
+    top: 215px;
+    left: 800px;
+    width: 250px;
+    height: 50px;
+}
+
+.about-you-child,
+.rectangle-container {
+  position: absolute;
+  top: 224px;
+  left: 476px;
+  width: 293px;
+  height: 50px;
+}
+
+.about-you-child {
+  border: 0;
+  background-color: var(--color-white);
+  height: 197.7px;
+  width: 326.5px;
+  display: block;
+  font-family: var(--font-inter);
+  font-size: var(--font-size-xs);
+  outline: 0;
+  top: 322px;
+  left: 350px;
+  border-radius: var(--br-11xl);
+  padding: var(--padding-3xl-5) var(--padding-mid);
+  box-sizing: border-box;
+  font-weight: 700;
+  color: var(--color-gray-200);
+}
+
+.group-div {
+  position: absolute;
+  top: 71px;
+  left: 341px;
+  width: 169px;
+  height: 141px;
+}
+
+.about-you1 {
+  position: absolute;
+  top: 286px;
+  left: 350px;
+}
+
+.group-15-1,
+.username {
+  position: absolute;
+  top: 239px;
+  left: 345px;
+}
+
+.group-15-1 {
+  top: -41px;
+  left: -26px;
+  width: 338px;
+  height: 760px;
+  object-fit: cover;
+}
+
+.logout-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-black);
+  width: 178px;
+  height: 63px;
+}
+
+.log-out {
+  position: absolute;
+  top: 13px;
+  left: 46.4px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 86.3px;
+}
+
+.logout {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 417px;
+  left: 14px;
+  width: 178px;
+  height: 63px;
+}
+
+.settings1 {
+  position: absolute;
+  top: 13px;
+  left: 42.1px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 94.9px;
+}
+
+.settings {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 299px;
+  left: 14px;
+  width: 178px;
+  height: 63px;
+}
+
+.profile1 {
+  position: absolute;
+  top: 13px;
+  left: 48.5px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 80.9px;
+}
+
+.profile {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 193px;
+  left: 14px;
+  width: 178px;
+  height: 63px;
+}
+
+.side-menu-for-likes-and-follo-child {
+  position: absolute;
+  right: 550.8px;
+  bottom: 0;
+  width: 142.2px;
+  height: 909px;
+}
+
+.side-menu-for-likes-and-follo-item {
+  position: absolute;
+  top: 32px;
+  left: 106px;
+  background-color: var(--color-dimgray-100);
+  width: 590px;
+  height: 791px;
+}
+
+.favorite-fill-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 63px;
+  height: 57px;
+}
+
+.likes,
+.likes1 {
+  position: absolute;
+}
+
+.likes1 {
+  top: 10px;
+  left: 63px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-silver-100);
+  text-align: left;
+}
+
+.likes {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 89px;
+  left: 528px;
+  width: 114px;
+  height: 57px;
+}
+
+.star-fill-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 64px;
+}
+
+.following1 {
+  position: absolute;
+  top: 18px;
+  left: 63px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-silver-100);
+  text-align: left;
+}
+
+.following {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 81px;
+  left: 295px;
+  width: 171px;
+  height: 64px;
+}
+
+.side-menu-for-likes-and-follo {
+  position: absolute;
+  right: 0;
+  bottom: -146px;
+  width: 693px;
+  height: 909px;
+}
+
+.post1 {
+  position: absolute;
+  top: 12px;
+  left: 57px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-silver-100);
+  text-align: left;
+}
+
+.post {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 86px;
+  left: 110px;
+  width: 171px;
+  height: 64px;
+  z-index: 1;
+}
+
+.post-fill-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 59px;
+  height: 64px;
+}
+
+.home-child {
+  top: 0;
+  left: 0;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-black);
+  width: 178px;
+  height: 64px;
+}
+
+.home,
+.home-child,
+.home1 {
+  position: absolute;
+}
+
+.home1 {
+  position: absolute;
+  top: 13px;
+  left: 61px;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-oswald);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 70px;
+}
+
+.home {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 102px;
+  left: 14px;
+  width: 178px;
+  height: 63px;
+}
+
+.about-you {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-darkslategray-200);
+  height: 719px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
