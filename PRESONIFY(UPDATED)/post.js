@@ -1,3 +1,5 @@
+import { followUser } from './followers.js';
+import { getCurrentUsername } from './accUserName.js' ;
 async function CreatePost() {
     try {
         const postInput = document.getElementById("PostInput");
@@ -80,12 +82,13 @@ async function getPosts() {
             function updateLikeButtonText(button, count) {
                 button.innerText = count === 0 ? "Like" : `Like (${count})`;
             }
-        
+            const loggedInUser = getCurrentUsername();
+
             const followButton = document.createElement("button");
             followButton.innerText = "Follow";
             followButton.classList.add("follow-button");
             followButton.addEventListener("click", function () {
-                // Implement follow functionality if needed
+                followUser(loggedInUser, post.postedBy.username);
             });
         
             // Append elements to postBox
