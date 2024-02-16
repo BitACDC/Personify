@@ -50,45 +50,50 @@ async function getPosts() {
             // Create post elements
             const postBox = document.createElement("div");
             postBox.classList.add("post-box");
-
+        
             const usernameElement = document.createElement("div");
             usernameElement.classList.add("username");
             usernameElement.style.fontWeight = 'bold';
             usernameElement.style.textDecoration = 'underline';
             usernameElement.innerText = post.postedBy;
-
+        
             // Check if "postedBy" information is available
             if (post.postedBy && post.postedBy.username) {
                 usernameElement.innerText = post.postedBy.username;
             }
-
+        
             const postContent = document.createElement("div");
             postContent.classList.add("post-content");
             postContent.innerText = post.content;
-
-            const likeCount = post.likeCount !== undefined ? post.likeCount : 0;
-
+        
+            // Use post.likes.length instead of post.likeCount
+            const likeCount = post.likes.length !== undefined ? post.likes.length : 0;
+        
             const likeButton = document.createElement("button");
-            likeButton.innerText = likeCount === 0 ? "Like" : `Like (${likeCount})`;
             likeButton.classList.add("like-button");
             likeButton.addEventListener("click", async function () {
                 // Update like count on button click
-                await updateLike(post.id, likeButton);
+                await updateLike(post.postId, likeButton);
             });
-
+            updateLikeButtonText(likeButton, likeCount);
+        
+            function updateLikeButtonText(button, count) {
+                button.innerText = count === 0 ? "Like" : `Like (${count})`;
+            }
+        
             const followButton = document.createElement("button");
             followButton.innerText = "Follow";
             followButton.classList.add("follow-button");
             followButton.addEventListener("click", function () {
                 // Implement follow functionality if needed
             });
-
+        
             // Append elements to postBox
             postBox.appendChild(usernameElement);
             postBox.appendChild(postContent);
             postBox.appendChild(likeButton);
             postBox.appendChild(followButton);
-
+        
             // Append postBox to postsFeedContainer
             postsFeedContainer.appendChild(postBox);
         });
@@ -99,16 +104,32 @@ async function getPosts() {
 
 // Assume there is an updateLike function to update the like count
 async function updateLike(postId, likeButton) {
-    // Implement the logic to update the like count for the given postId
-    // Make a request to the server to update the like count
-    // Update the like count on the button
-    const updatedLikeCount = 1; // Update with the actual like count
-    likeButton.innerText = `Like (${updatedLikeCount})`;
+    try {
+        const token = localStorage.getItem("token");
+        const likeAction = likeButton ? "like" : "unlike";
+
+        // Make a request to the server to update the like count for the given postId
+        const response = await fetch(`http://localhost:3000/api/v1/posts/${postId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                action: likeAction
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update like');
+        }
+
+        // Update the like count on the button
+        console.log('Post liked'); // You can handle this message as needed
+    } catch (error) {
+        console.error('Error occurred while updating like:', error);
+    }
 }
-
-// ... (rest of the code)
-
-
 
 // Call getPosts() when the page loads
 window.addEventListener("load", function() {
