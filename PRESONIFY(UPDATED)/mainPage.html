@@ -59,7 +59,7 @@
     var postsContainer = document.getElementById("posts-container");
     postsContainer.innerHTML = ''; 
 
-    var username = localStorage.getItem('username') || 'Guest'; // Default to 'Guest' if username is not set
+    var username = localStorage.getItem('username') || 'Guest';
 
     posts.forEach(function(postText) {
         var postBox = document.createElement("div");
@@ -75,7 +75,7 @@
         postContent.classList.add("post-content");
         postContent.innerText = postText;
 
-        var likeCount = 0; // Initialize like count for each post
+        var likeCount = 0; 
 
         var likeButton = document.createElement("button");
         likeButton.innerText = "Like (0)";
