@@ -13,7 +13,7 @@
 
 <body>
   <div class="main-page">
-    <textarea class="post-textbox" placeholder="What On Your Mind?" id="PostInput"></textarea>
+    <textarea class="post-textbox" placeholder="What's on your mind?" id="PostInput"></textarea>
     <button class="post-button" id="PostButton">
       <div class="post-button-child"></div>
       <div class="post-button-item"></div>
@@ -45,106 +45,123 @@
   </div>
 
   <script>
-   
-    
-  function savePosts(posts) {
-    localStorage.setItem('posts', JSON.stringify(posts));
-  }
 
- 
-  function loadPosts() {
-    var posts = localStorage.getItem('posts');
-    return posts ? JSON.parse(posts) : [];
-  }
+    function savePosts(posts) {
+      localStorage.setItem('posts', JSON.stringify(posts));
+    }
+    function loadPosts() {
+      var posts = localStorage.getItem('posts');
+      return posts ? JSON.parse(posts) : [];
+    }
 
- 
-  function displayPosts() {
+    function displayPosts() {
     var posts = loadPosts();
     var postsContainer = document.getElementById("posts-container");
     postsContainer.innerHTML = ''; 
 
+    var username = localStorage.getItem('username') || 'Guest'; // Default to 'Guest' if username is not set
+
     posts.forEach(function(postText) {
-      var postBox = document.createElement("div");
-      postBox.classList.add("post-box");
-      postBox.innerText = postText;
-      postsContainer.appendChild(postBox);
+        var postBox = document.createElement("div");
+        postBox.classList.add("post-box");
+
+        var usernameElement = document.createElement("div");
+        usernameElement.classList.add("username");
+        usernameElement.style.fontWeight = 'bold';
+        usernameElement.style.textDecoration = 'underline';
+        usernameElement.innerText = username;
+
+        var postContent = document.createElement("div");
+        postContent.classList.add("post-content");
+        postContent.innerText = postText;
+
+        var likeCount = 0; // Initialize like count for each post
+
+        var likeButton = document.createElement("button");
+        likeButton.innerText = "Like (0)";
+        likeButton.classList.add("like-button");
+        likeButton.addEventListener("click", function() {
+            likeCount++;
+            likeButton.innerText = "Like (" + likeCount + ")";
+        });
+
+        var followButton = document.createElement("button");
+        followButton.innerText = "Follow";
+        followButton.classList.add("follow-button");
+        followButton.addEventListener("click", function() {
+            if (followButton.innerText === "Follow") {
+                followButton.innerText = "Following";
+            } else {
+                followButton.innerText = "Follow";
+            }
+        });
+
+        postBox.appendChild(usernameElement);
+        postBox.appendChild(postContent);
+        postBox.appendChild(likeButton);
+        postBox.appendChild(followButton);
+
+        postsContainer.appendChild(postBox);
     });
-  }
+}
 
-  
-  document.getElementById("PostButton").addEventListener("click", function() {
-    var inputText = document.getElementById("PostInput").value;
-    var posts = loadPosts();
-    posts.push(inputText);
-    savePosts(posts);
-    displayPosts();
-    document.getElementById("PostInput").value = ""; 
-  });
+    document.getElementById("PostButton").addEventListener("click", function() {
+      var inputText = document.getElementById("PostInput").value;
+      var posts = loadPosts();
+      posts.push(inputText);
+      savePosts(posts);
+      displayPosts();
+      document.getElementById("PostInput").value = ""; 
+    });
 
-  
-  window.addEventListener("load", function() {
-    displayPosts();
-  });
+    window.addEventListener("load", function() {
+      displayPosts();
+    });
 
-      var sETTINGS = document.getElementById("SettingsButton");
-      if (sETTINGS) {
-        sETTINGS.addEventListener("click", function (e) {
-          window.location.href = "./settingPage.html";
-        });
-      }
-
-      var pROFILE = document.getElementById("ProfileButton");
-      if (pROFILE) {
-        pROFILE.addEventListener("click", function (e) {
-          window.location.href = "aboutyou.html";
-        });
-      }
-
-      var hOME = document.getElementById("HomeButton");
-      if (hOME) {
-        hOME.addEventListener("click", function (e) {
-          window.location.href = "./mainPage.html";
-        });
-      }
-
-      var Out = document.getElementById("LogOutButton");
-      if(Out)
-      {
-        Out.addEventListener("click", function(e)
-        {
-          window.location.href = "./index.html";
-        });
-        
-      }
-
-      function displayPosts() {
-        var posts = loadPosts();
-        var postsContainer = document.getElementById("posts-container");
-        postsContainer.innerHTML = ''; 
-
-        posts.forEach(function(postText) {
-          var postBox = document.createElement("div");
-          postBox.classList.add("post-box");
-          postBox.innerText = postText;
-          postsContainer.appendChild(postBox);
-        });
-      }
-
-      
-      document.querySelector(".search-bar").addEventListener("input", function() {
-        var searchText = this.value.trim().toLowerCase();
-        var postsContainer = document.getElementById("posts-container");
-        var posts = postsContainer.getElementsByClassName("post-box");
-
-        for (var i = 0; i < posts.length; i++) {
-          var postText = posts[i].innerText.toLowerCase();
-          if (postText.includes(searchText)) {
-            posts[i].style.display = "block"; 
-          } else {
-            posts[i].style.display = "none"; 
-          }
-        }
+    var sETTINGS = document.getElementById("SettingsButton");
+    if (sETTINGS) {
+      sETTINGS.addEventListener("click", function (e) {
+        window.location.href = "./settingPage.html";
       });
+    }
+
+    var pROFILE = document.getElementById("ProfileButton");
+    if (pROFILE) {
+      pROFILE.addEventListener("click", function (e) {
+        window.location.href = "aboutyou.html";
+      });
+    }
+
+    var hOME = document.getElementById("HomeButton");
+    if (hOME) {
+      hOME.addEventListener("click", function (e) {
+        window.location.href = "./mainPage.html";
+      });
+    }
+
+    var Out = document.getElementById("LogOutButton");
+    if(Out)
+    {
+      Out.addEventListener("click", function(e)
+      {
+        window.location.href = "./index.html";
+      });
+    }
+
+    document.querySelector(".search-bar").addEventListener("input", function() {
+      var searchText = this.value.trim().toLowerCase();
+      var postsContainer = document.getElementById("posts-container");
+      var posts = postsContainer.getElementsByClassName("post-box");
+
+      for (var i = 0; i < posts.length; i++) {
+        var postText = posts[i].innerText.toLowerCase();
+        if (postText.includes(searchText)) {
+          posts[i].style.display = "block"; 
+        } else {
+          posts[i].style.display = "none"; 
+        }
+      }
+    });
   </script>
 </body>
 </html>
