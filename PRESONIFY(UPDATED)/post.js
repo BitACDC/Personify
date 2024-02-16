@@ -23,8 +23,6 @@ async function CreatePost() {
     }
 }
 
-
-
 async function getPosts() {
     try {
         const token = localStorage.getItem("token");
@@ -84,4 +82,24 @@ async function sendtoAPI(event) {
     }
 }
 
+async function handlePost() {
+    try {
+      const postText = document.getElementById("PostInput").value.trim();
+
+      console.log(postText);
+
+      // Call CreatePost function to create the post
+      await CreatePost();
+
+      // Wait for CreatePost to complete, then refresh the posts by calling getPosts
+      await getPosts();
+
+      // Clear the input field
+      document.getElementById("PostInput").value = '';
+    } catch (error) {
+      console.error('Error occurred while posting:', error);
+    }
+  }
+  
+export {CreatePost, getPosts , handlePost}
 
