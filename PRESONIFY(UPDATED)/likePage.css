@@ -158,7 +158,7 @@
   top: 0;
   left: 0;
   width: 59px;
-  height: 64px;
+  height: 59px;
 }
 .following8 {
   cursor: pointer;
@@ -167,7 +167,7 @@
   background-color: transparent;
   position: absolute;
   top: 44px;
-  left: 1110px;
+  left: 910px;
   width: 171px;
   height: 64px;
   z-index: 1;

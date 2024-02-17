@@ -26,79 +26,78 @@ async function CreatePost() {
 }
 
 async function getPosts(username = null) {
-        try {
-            const token = localStorage.getItem("token");
+    try {
+        const token = localStorage.getItem("token");
 
-            let apiUrl = 'http://localhost:3000/api/v1/posts';
+        let apiUrl = 'http://localhost:3000/api/v1/posts';
 
-            if (username) {
-                apiUrl += `?username=${username}`;
-            }
-
-            const response = await fetch(apiUrl, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch posts');
-            }
-
-            const data = await response.json();
-
-            const postsContainer = document.getElementById("posts-container");
-            postsContainer.innerHTML = '';
-
-            data.forEach(post => {
-                const postBox = document.createElement("div");
-                postBox.classList.add("post-box");
-
-                const usernameElement = document.createElement("div");
-                usernameElement.classList.add("username");
-                usernameElement.style.fontWeight = 'bold';
-                usernameElement.style.textDecoration = 'underline';
-
-                if (post.postedBy && post.postedBy.username) {
-                    usernameElement.innerText = post.postedBy.username;
-                }
-
-                const postContent = document.createElement("div");
-                postContent.classList.add("post-content");
-                postContent.innerText = post.content;
-
-                const likeButton = document.createElement("button");
-                likeButton.innerText = "Like (" + post.likeCount + ")";
-                likeButton.classList.add("like-button");
-                likeButton.addEventListener("click", function () {
-                    post.likeCount++;
-                    likeButton.innerText = "Like (" + post.likeCount + ")";
-                });
-
-                const followButton = document.createElement("button");
-                followButton.innerText = "Follow";
-                followButton.classList.add("follow-button");
-                followButton.addEventListener("click", function () {
-                    if (followButton.innerText === "Follow") {
-                        followButton.innerText = "Following";
-                    } else {
-                        followButton.innerText = "Follow";
-                    }
-                });
-
-                postBox.appendChild(usernameElement);
-                postBox.appendChild(postContent);
-                postBox.appendChild(likeButton);
-                postBox.appendChild(followButton);
-
-                postsContainer.appendChild(postBox);
-            });
-        } catch (error) {
-            console.error('Error occurred while fetching posts:', error);
+        if (username) {
+            apiUrl += `?username=${username}`;
         }
+
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch posts');
+        }
+
+        const data = await response.json();
+
+        const postsContainer = document.getElementById("posts-container");
+        postsContainer.innerHTML = '';
+
+        data.forEach(post => {
+            const postBox = document.createElement("div");
+            postBox.classList.add("post-box");
+
+            const usernameElement = document.createElement("div");
+            usernameElement.classList.add("username");
+            usernameElement.style.fontWeight = 'bold';
+            usernameElement.style.textDecoration = 'underline';
+            usernameElement.innerText = post.postedBy;
+
+            // Check if "postedBy" information is available
+            if (post.postedBy && post.postedBy.username) {
+                usernameElement.innerText = post.postedBy.username;
+            }
+
+            const postContent = document.createElement("div");
+            postContent.classList.add("post-content");
+            postContent.innerText = post.content;
+
+            const likeButton = document.createElement("button");
+            likeButton.innerText = `Like (${post.likes.length})`;
+            likeButton.classList.add("like-button");
+            likeButton.addEventListener("click", async function () {
+                // Update like count on button click
+                await updateLike(post.postId, likeButton, getCurrentUsername());
+            });
+
+            const followButton = document.createElement("button");
+            followButton.innerText = "Follow";
+            followButton.classList.add("follow-button");
+            followButton.addEventListener("click", function () {
+                followUser(getCurrentUsername(), post.postedBy.username);
+            });
+
+            postBox.appendChild(usernameElement);
+            postBox.appendChild(postContent);
+            postBox.appendChild(likeButton);
+            postBox.appendChild(followButton);
+
+            postsContainer.appendChild(postBox);
+        });
+    } catch (error) {
+        console.error('Error occurred while fetching posts:', error);
     }
+}
+
 
     document.querySelector(".search-bar").addEventListener("input", async function() {
         try {
@@ -117,7 +116,7 @@ async function getPosts(username = null) {
     });
 
 // Assume there is an updateLike function to update the like count
-async function updateLike(postId, likeButton) {
+async function updateLike(postId, likeButton, currentUser) {
     try {
         const token = localStorage.getItem("token");
         const likeAction = likeButton ? "like" : "unlike";
@@ -135,16 +134,23 @@ async function updateLike(postId, likeButton) {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to update like');
+            throw new Error(`Failed to update like: ${response.status} ${response.statusText}`);
         }
 
-        // Update the like count on the button
-        console.log('Post liked'); // You can handle this message as needed
+        const responseData = await response.json();
+
+        // Check if the response contains the expected message
+        if (responseData.message === 'Post liked') {
+            // Update the like count on the button
+            console.log('Post liked');
+            // Optionally, you can update the like count on the button here
+        } else {
+            console.error('Unexpected response:', responseData);
+        }
     } catch (error) {
         console.error('Error occurred while updating like:', error);
     }
 }
-
 // Call getPosts() when the page loads
 window.addEventListener("load", function() {
     getPosts();
