@@ -83,7 +83,7 @@ async function getPosts(username = null) {
             followButton.innerText = "Follow";
             followButton.classList.add("follow-button");
             followButton.addEventListener("click", function () {
-                followUser(getCurrentUsername(), post.postedBy.username);
+                followUser(getCurrentUsername(), post.postedBy);
             });
 
             postBox.appendChild(usernameElement);
@@ -99,21 +99,21 @@ async function getPosts(username = null) {
 }
 
 
-    document.querySelector(".search-bar").addEventListener("input", async function() {
-        try {
-            var searchText = this.value.trim();
+document.querySelector(".search-bar").addEventListener("input", async function() {
+    try {
+        var searchText = this.value.trim();
 
-            if (searchText === '') {
-                // If search bar is empty, display posts for the current user
-                await getPosts(getCurrentUsername());
-            } else {
-                // Display posts based on the entered username
-                await getPosts(searchText);
-            }
-        } catch (error) {
-            console.error('Error occurred during search:', error);
+        if (searchText === '') {
+            // If search bar is empty, display posts for the current user
+            await getPosts(getCurrentUsername());
+        } else {
+            // Display posts based on the entered username
+            await getPosts(searchText);
         }
-    });
+    } catch (error) {
+        console.error('Error occurred during search:', error);
+    }
+});
 
 // Assume there is an updateLike function to update the like count
 async function updateLike(postId, likeButton, currentUser) {
