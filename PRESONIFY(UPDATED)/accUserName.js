@@ -62,4 +62,4 @@ async function displayUserInfo() {
   }
 }
 
-export { getCurrentUsername,displayUserInfo };
+export { UserList ,getCurrentUsername,displayUserInfo };

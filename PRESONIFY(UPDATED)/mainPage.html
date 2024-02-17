@@ -53,6 +53,7 @@
 
   <script type="module">
     import { CreatePost, getPosts, handlePost } from './post.js';
+    import { UserList } from './accUserName.js';
 
     function savePosts(posts) {
       localStorage.setItem('posts', JSON.stringify(posts));
@@ -112,7 +113,17 @@
         postsContainer.appendChild(postBox);
     });
 }
-
+async function displayPostsByUsername(username) {
+        try {
+            // Fetch posts for the entered username
+            await getPosts(username);
+            
+            // Uncomment the following line if you want to display all posts after fetching
+            // await displayPosts();
+        } catch (error) {
+            console.error('Error occurred while fetching and displaying posts:', error);
+        }
+    }
   document.getElementById("PostButton").addEventListener("click", async function () {
       var inputText = document.getElementById("PostInput").value;
       var posts = loadPosts();
@@ -179,20 +190,15 @@
     }
 
 
-    document.querySelector(".search-bar").addEventListener("input", function() {
-      var searchText = this.value.trim().toLowerCase();
-      var postsContainer = document.getElementById("posts-container");
-      var posts = postsContainer.getElementsByClassName("post-box");
-
-
-      for (var i = 0; i < posts.length; i++) {
-        var postText = posts[i].innerText.toLowerCase();
-        if (postText.includes(searchText)) {
-          posts[i].style.display = "block";
-        } else {
-          posts[i].style.display = "none";
+    document.querySelector(".search-bar").addEventListener("input", async function() {
+        try {
+            var searchText = this.value.trim();
+            var postsContainer = document.getElementById("posts-container");
+            // Fetch posts for the entered username
+            await getPosts(searchText);
+        } catch (error) {
+            console.error('Error occurred during search:', error);
         }
-      }
     });
   </script>
 </body>
